@@ -1,0 +1,24 @@
+---
+title: "EDS-221-Day4"
+format: html
+editor: visual
+---
+
+## Writing functions
+
+```{r}
+ temp_f_to_c <- function(f){ 
+   temp_in_degree = (5/9)*(f-32)
+   print(temp_in_degree)
+ }
+ 
+temp_f_to_c(100)
+```
+
+```{r}
+intro <- function(hometown, age){
+  paste0("I am ", as.numeric(age), " and I am from ", as.character(hometown))
+}
+
+intro(hometown= "Nepal", 22)
+```
