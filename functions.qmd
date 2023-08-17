@@ -22,3 +22,32 @@ intro <- function(hometown, age){
 
 intro(hometown= "Nepal", 22)
 ```
+
+Functions with conditions\
+Calculate animals age
+
+```{r}
+animal_age <- function(species, age){
+  if(species=="Dog"){
+    age * 7
+  } else if (species=="goat") {
+    age * 10
+  } else {
+   "please enter only limited animal names bro" 
+  }
+}
+
+animal_age("whale", 20)
+```
+
+```{r}
+correct_metric <- function(metrics, temp){
+  if(metrics == "metric"){
+    temp
+  } else if(metrics == "english"){
+    (temp * (9/5))+ 32
+  }
+}
+
+correct_metric(metrics = "english", 20 )
+```
