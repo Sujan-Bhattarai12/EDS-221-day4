@@ -51,3 +51,36 @@ correct_metric <- function(metrics, temp){
 
 correct_metric(metrics = "english", 20 )
 ```
+
+More functions
+
+```{r}
+library(tidyverse)
+choice <- data.frame(dog_name = c("sujan", "Sabin", "Prakash"),
+                     dog_choice = c("Buff", "momo", "chowmein"))
+```
+
+```{r}
+dog_menu <- function(enter_dog_name){
+            subset <- filter(choice , dog_name == enter_dog_name)
+            filter(choice , dog_name == enter_dog_name)
+}
+
+dog_menu(enter_dog_name="Sujan")
+```
+
+For loop
+
+```{r}
+df_means <- function(df){
+  for(i in seq_along(df)){
+    col_mean = mean(df[[i]], na.rm=TRUE)
+    col_name = colnames(df[i])
+    print(paste("The mean value of", col_name, "is" , col_mean))
+  }
+}
+```
+
+```{r}
+df_means(mtcars)
+```
