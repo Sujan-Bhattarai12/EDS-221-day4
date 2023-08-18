@@ -9,4 +9,64 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 
+```{r}
+weekdays  <- c('Sunday', 'monday', 'tuesday')
+transects <- c('transectA', 'transectB', 'transectC')
+
+data <- matrix(nrow=length(transects), ncol=length(weekdays))
+
+for( i in seq_along(weekdays)){
+  for(j in seq_along(transects)){
+    format = paste0(weekdays[i], "-", transects[j])
+    data[j, i] <- format
+  }
+}
+```
+
+##part 2 functions
+
+```{r}
+force <- function(mass, acceleration){
+         f= mass * acceleration
+  print("The resulting force is", f,  "Newtons")
+}
+```
+
+Task 3
+
+```{r}
+fish_parms <- data.frame(
+  sci_name=c("Chanos chanos", "Sphyraena barracuda",
+             "Caranx ignobilis"),
+  common_name=c("Milkfish", "Great barracuda", "Giant trevally"),
+  a_est = c(0.0905, 0.0181, 0.0350),
+  b_est=  c(2.52, 3.27, 3.05)
+)
+```
+
+```{r}
+library(tidyverse)
+fish_weight <- function(fish_name, tot_length) {
+    subset <- filter(fish_parms, common_name == fish_name)
+    weight <- subset$a_est * (tot_length^subset$b_est)
+    print(weight)
+}
+
+fish_weight("Great barracuda", 20)
+
+subset <- filter(fish_parms, common_name == "Milkfish")
+weight <- subset$a_est * (10^subset$b_est)
+  
+#   if (fishname == "Great barracuda") {
+#     subset <- filter(fish_parms, common_name == "Great barracuda")
+#     W <- subset$a_est * (tot_length^subset$b_est)
+#   }
+#   if (fishname == "Giant trevally") {
+#     subset <- filter(fish_parms, common_name == "Giant trevally")
+#     W <- subset$a_est * (tot_length^subset$b_est)
+#   }
+# }
+
+```
+
+## Task 4
